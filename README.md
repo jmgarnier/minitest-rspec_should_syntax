@@ -20,6 +20,18 @@ Or install it yourself as:
 
 TODO: Write usage instructions here
 
+## Links
+
+http://www.rubyinside.com/a-minitestspec-tutorial-elegant-spec-style-testing-that-comes-with-ruby-5354.html
+
+## TODO
+
+
+## NOTES
+
+* default Minitest.filter_backtrace is very primitive, extract from Turn or Rails/backtrace_cleaner
+* guard_minitest always runs all tests for a give test class. Would be good to run only latest failure such as in guard-rspec (RSpec 2)
+
 ## Contributing
 
 1. Fork it

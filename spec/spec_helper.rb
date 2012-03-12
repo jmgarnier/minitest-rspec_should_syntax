@@ -10,9 +10,8 @@ Turn.config do |c|
   # :marshal  - dump output as YAML (normal run mode only)
   # :cue      - interactive testing
   c.format  = :outline
-  # turn on invoke/execute tracing, enable full backtrace
-  c.trace   = 5
-  # use humanized test names (works only with :outline format)
-  c.natural = true
-  c.ansi = true
+
+  c.trace   = 5 # number of lines, enable full backtrace
+  c.natural = true # use humanized test names (works only with :outline format)
+  c.ansi = true # colors
 end
