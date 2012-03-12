@@ -20,13 +20,6 @@ Or install it yourself as:
 
 TODO: Write usage instructions here
 
-## Links
-
-http://www.rubyinside.com/a-minitestspec-tutorial-elegant-spec-style-testing-that-comes-with-ruby-5354.html
-
-## TODO
-
-
 ## NOTES
 
 * default Minitest.filter_backtrace is very primitive, extract from Turn or Rails/backtrace_cleaner

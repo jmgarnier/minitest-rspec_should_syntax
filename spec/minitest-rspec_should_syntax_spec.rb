@@ -4,6 +4,11 @@ require_relative '../lib/minitest-rspec_should_syntax'
 describe Minitest::RspecShouldSyntax do
 
   # minitest/spec comes with let & subject ;)
+  # http://www.rubyinside.com/a-minitestspec-tutorial-elegant-spec-style-testing-that-comes-with-ruby-5354.html
+
+  it "should take less than 3 pomodori to set up a dev env!" do
+    true.must_equal true
+  end
 
   describe "vim plugin" do
     it "you can use https://github.com/sunaku/vim-ruby-minitest"
@@ -48,8 +53,6 @@ describe Minitest::RspecShouldSyntax do
     a.should eq(b) # passes if a == b
 =end
 
-    it ""
-
   end
 
   describe "raise_error matcher" do
@@ -58,6 +61,10 @@ describe Minitest::RspecShouldSyntax do
 
   describe "include matcher" do
     it ""
+  end
+
+  describe "custom matchers" do
+    # a la it { 1.must_be == 1 }
   end
 
   describe "These matchers won't be implemented at this stage" do
@@ -75,15 +82,10 @@ describe Minitest::RspecShouldSyntax do
     it "throw" # I don$'t understand this one!
     it "specify types of object"
     it "cover"
-    # see http://adam.heroku.com/past/2008/2/7/minimalist_rspec_matching/
   end
 
   describe "RSpec tags" do
     it "TODO later ;)"
-  end
-
-  it "should take less than 3 pomodori to set up a dev env!" do
-    true.must_equal true
   end
 
 end
