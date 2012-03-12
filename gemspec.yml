@@ -1,9 +1,0 @@
-name: minitest-rspec_should_syntax
-summary: "TODO: Summary"
-description: "TODO: Description"
-license: MIT
-authors: jeanmichel
-homepage: http://rubygems.org/gems/minitest-rspec_should_syntax
-
-development_dependencies:
-  bundler: ~> 1.0.0

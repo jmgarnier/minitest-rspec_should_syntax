@@ -1,8 +1,4 @@
-source :rubygems
+source 'https://rubygems.org'
 
+# Specify your gem's dependencies in minitest-rspec_should_syntax.gemspec
 gemspec
-
-group :development do
-  gem 'rake',     '~> 0.8.7'
-  gem 'ore-core',  '~> 0.1'
-end
