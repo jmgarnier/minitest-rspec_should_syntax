@@ -25,16 +25,10 @@ fi
 # directory you can uncomment the following code.
 #
 
-# Ensure that ore-core is installed.
-if [[ `gem list -i ore-core` -ne "true" ]]; then
-  printf "The rubygem 'ore-core' is not installed, installing it now.\n"
-  gem install ore-core --version "~> 0.1"
-fi
-
 # Ensure that Bundler is installed, install it if it is not.
 if ! command -v bundle ; then
   printf "The rubygem 'bundler' is not installed, installing it now.\n"
-  gem install bundler --version "~> 1.0.0"
+  gem install bundler --version "~> 1.1.0"
 fi
 
 # Bundle while reducing excess noise.
