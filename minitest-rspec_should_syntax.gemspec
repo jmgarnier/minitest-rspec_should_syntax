@@ -16,8 +16,11 @@ Gem::Specification.new do |gem|
   gem.version       = Minitest::RspecShouldSyntax::VERSION
 
   gem.add_development_dependency 'bundler',   '~> 1.1.0'
+
   gem.add_development_dependency 'minitest',  '~> 2.3'
+
   gem.add_development_dependency 'guard'
   gem.add_development_dependency 'growl'
-  gem.add_development_dependency 'guard-minitest' # ensures you're using the gem, and not the built in 1.9
+  gem.add_development_dependency 'guard-bundler'
+  gem.add_development_dependency 'guard-minitest'
 end
