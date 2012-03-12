@@ -1,0 +1,6 @@
+doc/
+pkg/
+html/
+
+Gemfile.lock
+vendor/cache/*.gem
