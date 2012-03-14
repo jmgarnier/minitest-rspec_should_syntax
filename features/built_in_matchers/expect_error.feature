@@ -22,17 +22,21 @@ Feature: raise_error matcher
       expect { raise "oops" }.to raise_error(RuntimeError, "oops")
       expect { raise "oops" }.to raise_error(RuntimeError, /op/)
 
-#  Scenario: expect any error
-#    Given a file named "example_spec" with:
-#      """
-#      describe "calling a missing method" do
-#        it "raises" do
-#          expect { Object.new.foo }.to raise_error
-#        end
-#      end
-#      """
-#    When I run `rspec example_spec`
-#    Then the example should pass
+  Background:
+    * a minitest/spec spec_helper
+
+  Scenario: expect any error
+    Given a file named "example_spec" with:
+      """
+      require_relative 'spec_helper'
+      describe "calling a missing method" do
+        it "raises" do
+          expect { Object.new.foo }.to raise_error
+        end
+      end
+      """
+    When I run `ruby example_spec`
+    Then the example should pass
 
 #  Scenario: expect specific error
 #    Given a file named "example_spec" with:
