@@ -24,4 +24,8 @@ Gem::Specification.new do |gem|
   gem.add_development_dependency 'growl'
   gem.add_development_dependency 'guard-bundler'
   gem.add_development_dependency 'guard-minitest'
+  gem.add_development_dependency 'guard-cucumber'
+
+  gem.add_development_dependency 'cucumber', '~> 1.1.9'
+  gem.add_development_dependency 'aruba',    '~> 0.4.11'
 end

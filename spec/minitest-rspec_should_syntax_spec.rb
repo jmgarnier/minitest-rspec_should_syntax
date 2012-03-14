@@ -6,26 +6,10 @@ describe Minitest::RspecShouldSyntax do
   # minitest/spec comes with let & subject ;)
   # http://www.rubyinside.com/a-minitestspec-tutorial-elegant-spec-style-testing-that-comes-with-ruby-5354.html
 
-  it "should take less than 3 pomodori to set up a dev env!" do
-    true.must_equal true
-  end
-
-  describe "vim plugin" do
-    it "you can use https://github.com/sunaku/vim-ruby-minitest"
-  end
-
   describe "Which Mock framework?" do
     it "has be super easy to use : TODO choose either
         https://github.com/btakita/rr (more readable syntax, JM +1)
      or https://github.com/floehopper/mocha"
-  end
-
-  describe "How to Integration tests: will there be any time?" do
-
-    it "will be located in spec/integration ?"
-    it "TODO later: find a small ruby gem project using RSpec "
-    it "provides an helper to run on "
-
   end
 
   describe "potential implementation" do

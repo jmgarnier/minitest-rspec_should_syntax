@@ -15,3 +15,5 @@ Turn.config do |c|
   c.natural = true # use humanized test names (works only with :outline format)
   c.ansi = true # colors
 end
+
+MiniTest::Unit.autorun
