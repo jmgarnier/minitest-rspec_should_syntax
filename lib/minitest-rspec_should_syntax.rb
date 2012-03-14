@@ -2,29 +2,29 @@ module Minitest
   module RspecShouldSyntax
     module Expectations
       def should
-        Shoulder.new(self)
+        ExpectationHandler.new(self)
       end
 
       def should_not
-        Shoulder.new(self, :not)
+        ExpectationHandler.new(self, false)
       end
     end
 
-    class Shoulder
-      def initialize(actual, negation=nil)
+    class ExpectationHandler
+      def initialize(actual, positive = true)
         @actual = actual
-        @negation = negation
+        @positive = positive
       end
 
       def ==(expected)
-        @actual.send("#{meh}_equal", expected)
+        @actual.send("#{must_or_wont}_equal", expected)
       end
 
-      def meh
-        if @negation
-          "wont"
-        else
+      def must_or_wont
+        if @positive
           "must"
+        else
+          "wont"
         end
       end
     end
