@@ -28,9 +28,14 @@ module Minitest
         end
       end
     end
+
+    module ExpectLambdaMagic
+      alias expect lambda
+    end
   end
 end
 
 class Object
   include Minitest::RspecShouldSyntax::Expectations
+  include Minitest::RspecShouldSyntax::ExpectLambdaMagic
 end

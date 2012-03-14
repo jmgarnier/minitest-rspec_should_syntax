@@ -26,7 +26,7 @@ Feature: raise_error matcher
     * a minitest/spec spec_helper
 
   Scenario: expect any error
-    Given a file named "example_spec" with:
+    Given a file named "example_spec.rb" with:
       """
       require_relative 'spec_helper'
       describe "calling a missing method" do
@@ -35,7 +35,7 @@ Feature: raise_error matcher
         end
       end
       """
-    When I run `ruby example_spec`
+    When I run `ruby example_spec.rb`
     Then the example should pass
 
 #  Scenario: expect specific error
