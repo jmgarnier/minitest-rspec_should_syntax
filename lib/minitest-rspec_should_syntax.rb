@@ -7,7 +7,7 @@ module Minitest
           @expected_exception = expected_exception
         end
 
-        def assert(actual_lambda)
+        def adapt(actual_lambda)
           actual_lambda.must_raise @expected_exception
         end
       end
@@ -17,7 +17,7 @@ module Minitest
       end
 
       class TruthMatcher
-        def assert(actual)
+        def adapt(actual)
           actual.must_equal true
         end
       end
@@ -32,7 +32,7 @@ module Minitest
         if matcher.nil? # ==
           ExpectationHandler.new(self)
         else # raise_error
-          matcher.assert(self)
+          matcher.adapt(self)
         end
       end
 
