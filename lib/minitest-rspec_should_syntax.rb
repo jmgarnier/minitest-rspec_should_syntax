@@ -1,5 +1,11 @@
 module Minitest
   module RspecShouldSyntax
-    # Your code goes here...
+    def should
+      raise "Should what?"
+    end
   end
+end
+
+class Object
+  include Minitest::RspecShouldSyntax
 end
