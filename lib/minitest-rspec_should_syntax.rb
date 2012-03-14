@@ -3,13 +3,16 @@ module Minitest
 
     module Matchers
       class RaiseErrorMatcher
-        def assert_against(actual_lambda)
-          actual_lambda.must_raise
+        def initialize(expected_exception)
+          @expected_exception = expected_exception
+        end
+        def assert(actual_lambda)
+          actual_lambda.must_raise @expected_exception
         end
       end
 
-      def raise_error
-        RaiseErrorMatcher.new
+      def raise_error(expected_exception = NoMethodError)
+        RaiseErrorMatcher.new(expected_exception)
       end
     end
 
@@ -18,8 +21,7 @@ module Minitest
         if matcher.nil? # ==
           ExpectationHandler.new(self)
         else # raise_error
-          # matcher.assert_against(self)
-          @actual.must_raise
+          matcher.assert(self)
         end
       end
 
