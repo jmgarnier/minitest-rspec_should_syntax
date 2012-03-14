@@ -1,3 +1,12 @@
+Given "a minitest/spec spec_helper" do
+  write_file "spec_helper.rb",
+<<RB
+  require 'minitest/spec'
+  MiniTest::Unit.autorun
+  require_relative '../../lib/minitest-rspec_should_syntax'
+RB
+end
+
 # Useful for when the output is slightly different on different versions of ruby
 Then /^the output should contain "([^"]*)" or "([^"]*)"$/ do |string1, string2|
   unless [string1, string2].any? { |s| all_output =~ regexp(s) }

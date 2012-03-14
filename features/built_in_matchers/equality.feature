@@ -24,6 +24,9 @@ Feature: equality matchers
   These are a useful pair if you wish to avoid the warning that Ruby emits on
   `a.should == b`
 
+  Background:
+    * a minitest/spec spec_helper
+
   # Scenario: compare using eq (==)
   #   Given a file named "compare_using_eq.rb" with:
   #     """
@@ -52,9 +55,7 @@ Feature: equality matchers
   Scenario: compare using ==
     Given a file named "compare_using_==.rb" with:
       """
-      require 'minitest/spec'
-      MiniTest::Unit.autorun
-      require_relative '../../lib/minitest-rspec_should_syntax'
+      require_relative 'spec_helper'
 
       describe "a string" do
         it "is equal to another string of the same value" do
