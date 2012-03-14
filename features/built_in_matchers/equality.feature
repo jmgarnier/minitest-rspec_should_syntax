@@ -24,53 +24,56 @@ Feature: equality matchers
   These are a useful pair if you wish to avoid the warning that Ruby emits on
   `a.should == b`
 
-  Scenario: compare using eq (==)
-    Given a file named "compare_using_eq.rb" with:
+  # Scenario: compare using eq (==)
+  #   Given a file named "compare_using_eq.rb" with:
+  #     """
+  #     require 'minitest/spec'
+  #     MiniTest::Unit.autorun
+
+  #     describe "a string" do
+  #       it "is equal to another string of the same value" do
+  #         "this string".should eq("this string")
+  #       end
+
+  #       it "is not equal to another string of a different value" do
+  #         "this string".should_not eq("a different string")
+  #       end
+  #     end
+
+  #     describe "an integer" do
+  #       it "is equal to a float of the same value" do
+  #         5.should eq(5.0)
+  #       end
+  #     end
+  #     """
+  #   When I run `ruby compare_using_eq.rb`
+  #   Then the output should contain "3 examples, 0 failures"
+
+  Scenario: compare using ==
+    Given a file named "compare_using_==.rb" with:
       """
-      require 'spec_helper'
+      require 'minitest/spec'
+      MiniTest::Unit.autorun
+      require_relative '../../lib/minitest-rspec_should_syntax'
 
       describe "a string" do
         it "is equal to another string of the same value" do
-          "this string".should eq("this string")
+          "this string".should == "this string"
         end
 
         it "is not equal to another string of a different value" do
-          "this string".should_not eq("a different string")
+          "this string".should_not == "a different string"
         end
       end
 
       describe "an integer" do
         it "is equal to a float of the same value" do
-          5.should eq(5.0)
+          5.should == 5.0
         end
       end
       """
-    When I run `ruby compare_using_eq.rb`
-    Then the output should contain "3 examples, 0 failures"
-
-#  Scenario: compare using ==
-#    Given a file named "compare_using_==.rb" with:
-#      """
-#      require 'spec_helper'
-#
-#      describe "a string" do
-#        it "is equal to another string of the same value" do
-#          "this string".should == "this string"
-#        end
-#
-#        it "is not equal to another string of a different value" do
-#          "this string".should_not == "a different string"
-#        end
-#      end
-#
-#      describe "an integer" do
-#        it "is equal to a float of the same value" do
-#          5.should == 5.0
-#        end
-#      end
-#      """
-#    When I run `rspec compare_using_==.rb`
-#    Then the output should contain "3 examples, 0 failures"
+    When I run `ruby compare_using_==.rb`
+    Then the output should contain "3 tests, 3 assertions, 0 errors, 0 skips"
 #
 #  Scenario: compare using eql (eql?)
 #    Given a file named "compare_using_eql.rb" with:
