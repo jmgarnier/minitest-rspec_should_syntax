@@ -73,7 +73,7 @@ Feature: equality matchers
       end
       """
     When I run `ruby compare_using_==.rb`
-    Then the output should contain "3 tests, 3 assertions, 0 errors, 0 skips"
+    Then the output should contain "3 tests, 3 assertions, 0 failures, 0 errors, 0 skips"
 #
 #  Scenario: compare using eql (eql?)
 #    Given a file named "compare_using_eql.rb" with:
