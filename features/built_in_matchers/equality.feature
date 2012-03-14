@@ -58,7 +58,7 @@ Feature: equality matchers
 
       describe "a string" do
         it "is equal to another string of the same value" do
-          "this string".should == "this string"
+          ("this string".should)==("this string")
         end
 
         it "is not equal to another string of a different value" do
