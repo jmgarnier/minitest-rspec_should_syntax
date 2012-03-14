@@ -22,6 +22,8 @@ TODO: Write usage instructions here
 
 ## NOTES
 
+* replace "must_equal true" by assert true, actual ? in benchmark
+* use minitest benchmark & https://gist.github.com/894367
 * default Minitest.filter_backtrace is very primitive, extract from Turn or Rails/backtrace_cleaner
 * guard_minitest always runs all tests for a give test class. Would be good to run only latest failure such as in guard-rspec (RSpec 2)
 
