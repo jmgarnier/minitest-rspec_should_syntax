@@ -6,6 +6,7 @@ module Minitest
         def initialize(expected_exception)
           @expected_exception = expected_exception
         end
+
         def assert(actual_lambda)
           actual_lambda.must_raise @expected_exception
         end
@@ -13,6 +14,16 @@ module Minitest
 
       def raise_error(expected_exception = NoMethodError)
         RaiseErrorMatcher.new(expected_exception)
+      end
+
+      class TruthMatcher
+        def assert(actual)
+          actual.must_equal true
+        end
+      end
+
+      def be_true
+        TruthMatcher.new
       end
     end
 
