@@ -1,8 +1,26 @@
 module Minitest
   module RspecShouldSyntax
+
+    module Matchers
+      class RaiseErrorMatcher
+        def assert_against(actual_lambda)
+          actual_lambda.must_raise
+        end
+      end
+
+      def raise_error
+        RaiseErrorMatcher.new
+      end
+    end
+
     module Expectations
-      def should
-        ExpectationHandler.new(self)
+      def should(matcher=nil)
+        if matcher.nil? # ==
+          ExpectationHandler.new(self)
+        else # raise_error
+          # matcher.assert_against(self)
+          @actual.must_raise
+        end
       end
 
       def should_not
@@ -20,6 +38,8 @@ module Minitest
         @actual.send("#{must_or_wont}_equal", expected)
       end
 
+      private
+
       def must_or_wont
         if @positive
           "must"
@@ -29,13 +49,11 @@ module Minitest
       end
     end
 
-    module ExpectLambdaMagic
-      alias expect lambda
-    end
   end
 end
 
 class Object
   include Minitest::RspecShouldSyntax::Expectations
-  include Minitest::RspecShouldSyntax::ExpectLambdaMagic
+  include Minitest::RspecShouldSyntax::Matchers
 end
+

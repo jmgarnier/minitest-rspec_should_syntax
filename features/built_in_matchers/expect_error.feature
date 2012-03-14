@@ -31,12 +31,27 @@ Feature: raise_error matcher
       require_relative 'spec_helper'
       describe "calling a missing method" do
         it "raises" do
-          expect { Object.new.foo }.to raise_error
+          lambda { Object.new.foo }.should raise_error
+          #expect { Object.new.foo }.to(raise_error)
         end
       end
       """
     When I run `ruby example_spec.rb`
     Then the example should pass
+
+  Scenario: failing scenario
+    Given a file named "example_spec.rb" with:
+      """
+      require_relative 'spec_helper'
+      describe "calling a missing method" do
+        it "raises" do
+          lambda { Object.new }.should raise_error
+          #expect { Object.new.foo }.to(raise_error)
+        end
+      end
+      """
+    When I run `ruby example_spec.rb`
+    Then the example should fail
 
 #  Scenario: expect specific error
 #    Given a file named "example_spec" with:
