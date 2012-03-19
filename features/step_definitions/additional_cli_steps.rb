@@ -7,6 +7,8 @@ Given "a minitest/spec spec_helper" do
 RB
 end
 
+# write_file(file_name, file_content)
+
 # Useful for when the output is slightly different on different versions of ruby
 Then /^the output should contain "([^"]*)" or "([^"]*)"$/ do |string1, string2|
   unless [string1, string2].any? { |s| all_output =~ regexp(s) }
@@ -28,4 +30,8 @@ end
 Then /^the example should fail$/ do
   step %q{the output should contain "1 failure"}
   step %q{the exit status should not be 0}
+end
+
+Then /^display the output without the dots$/ do
+  puts all_output.gsub(/^\.*\n/, '')
 end
